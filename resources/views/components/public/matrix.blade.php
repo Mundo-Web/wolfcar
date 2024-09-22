@@ -17,7 +17,7 @@
   <meta name="keywords"
     content="" />
 
-  <link rel="icon" type="image/svg+xml" href="{{ asset('images/svg/Boost.svg') }}">
+  {{-- <link rel="icon" type="image/svg+xml" href="{{ asset('images/svg/Boost.svg') }}"> --}}
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   @vite([...$sources, 'resources/css/app.css', 'resources/js/app.js'])
