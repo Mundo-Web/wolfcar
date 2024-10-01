@@ -938,7 +938,7 @@ class IndexController extends Controller
                         font-weight: 500;
                         font-size: 18px;
                         text-align: center;
-                        width: 250px;
+                        width: 400px;
                         margin: 0 auto;
                         font-family: Montserrat, sans-serif;
                         line-height: 30px;
@@ -1055,7 +1055,7 @@ class IndexController extends Controller
                   <td style="height: 10px">
                     <p
                       style="
-                        color: #4d86c3;
+                        color: #FD1F4A;
                         font-weight: 500;
                         font-size: 18px;
                         text-align: center;
@@ -1065,7 +1065,7 @@ class IndexController extends Controller
                         line-height: 30px;
                       "
                     >
-                      <span style="display: block">Hola </span>
+                      <span style="display: block">Felicidades </span>
                     </p>
                   </td>
                 </tr>
@@ -1073,21 +1073,7 @@ class IndexController extends Controller
                   <td style="height: 10px">
                     <p
                       style="
-                        color: #4d86c3;
-                        font-size: 40px;
-                        font-family: Montserrat, sans-serif;
-                        line-height: 60px;
-                      "
-                    >
-                      <span style="display: block">' . $name . ' </span>
-                    </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="height: 10px">
-                    <p
-                      style="
-                        color: #006bf6;
+                        color: #111111;
                         font-size: 40px;
                         font-family: Montserrat, sans-serif;
                         font-weight: bold;
@@ -1107,13 +1093,13 @@ class IndexController extends Controller
                         font-weight: 500;
                         font-size: 18px;
                         text-align: center;
-                        width: 250px;
+                        width: 400px;
                         margin: 0 auto;
                         font-family: Montserrat, sans-serif;
                         line-height: 30px;
                       "
-                    >
-                      En breve momentos estaremos procesando tu pedido.
+                    > Hola ' . $name . ' <br>
+                      Tu pedido ha sido recepcionado.
                     </p>
                   </td>
                 </tr>
