@@ -24,16 +24,16 @@
               <tr>
                 <th class="w-32">Imagen</th>
                 <th>Titulo</th>
-                <th>Descripcion</th>
+                {{-- <th>Descripcion</th> --}}
                 <th class="w-32">Acciones</th>
               </tr>
             </thead>
             <tbody>
               @foreach ($logos as $logo)
                 <tr>
-                  <td class="dark:bg-slate-800">{{ $logo->url_image }}</td>
+                  <td class="dark:bg-slate-800"><img class="w-20 object-contain mx-auto" src="{{ asset($logo->url_image) }}"/></td>
                   <td class="dark:bg-slate-800">{{ $logo->title }}</td>
-                  <td class="dark:bg-slate-800">{{ $logo->description }}</td>
+                  {{-- <td class="dark:bg-slate-800">{{ $logo->description }}</td> --}}
                   <td class="dark:bg-slate-800">
                     <form action=" " method="POST">
                       @csrf
@@ -53,7 +53,7 @@
               <tr>
                 <th>Imagen</th>
                 <th>Titulo</th>
-                <th>Descripcion</th>
+                {{-- <th>Descripcion</th> --}}
                 <th>Acciones</th>
               </tr>
             </tfoot>

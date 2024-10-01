@@ -21,7 +21,7 @@ class EmailConfig
         $mail->Port = 465;
         $mail->Subject = '' . $name . ', '.$mensaje. '';
         $mail->CharSet = 'UTF-8';
-        $mail->setFrom('atencionalcliente@boostperu.com.pe', 'BoostPeru');
+        $mail->setFrom('atencionalcliente@boostperu.com.pe', 'Wolfcar');
         return $mail;
     }
 }

@@ -839,7 +839,7 @@ class IndexController extends Controller
   {
     $appUrl = env('APP_URL');
     $name = $data['full_name'];
-    $mensaje = "Gracias por comunicarte con BoostPeru";
+    $mensaje = "Gracias por comunicarte con Wolfcar";
     $mail = EmailConfig::config($name, $mensaje);
     // dd($mail);
     try {
@@ -871,7 +871,7 @@ class IndexController extends Controller
                 height: 800px;
                 margin: 0 auto;
                 text-align: center;
-                background-image:url(' . $appUrl . '/images/Ellipse_18.png),  url(' . $appUrl . '/images/Tabpanel.png);
+                background-image:url(' . $appUrl . '/mail/fondo.png);
                 background-repeat: no-repeat, no-repeat;
                 background-position: center bottom , center bottom;;
                 background-size: fit , fit;
@@ -889,7 +889,7 @@ class IndexController extends Controller
                       margin: 40px;
                     "
                   >
-                    <img src="' . $appUrl . '/images/Group1.png" alt="Boost_Peru"  style="
+                    <img src="' . $appUrl . '/mail/logo.png" alt="wolfcar"  style="
                     margin: auto;
                   "/>
                   </th>
@@ -900,7 +900,7 @@ class IndexController extends Controller
                   <td style="height: 10px">
                     <p
                       style="
-                        
+                        color: #FD1F4A;
                         font-weight: 500;
                         font-size: 18px;
                         text-align: center;
@@ -910,7 +910,7 @@ class IndexController extends Controller
                         line-height: 30px;
                       "
                     >
-                      <span style="display: block">Hola </span>
+                      <span style="display: block">Felicidades </span>
                     </p>
                   </td>
                 </tr>
@@ -918,21 +918,7 @@ class IndexController extends Controller
                   <td style="height: 10px">
                     <p
                       style="
-                        
-                        font-size: 40px;
-                        font-family: Montserrat, sans-serif;
-                        line-height: 60px;
-                      "
-                    >
-                      <span style="display: block">' . $name . ' </span>
-                    </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="height: 10px">
-                    <p
-                      style="
-                        color: #006bf6;
+                        color: #111111;
                         font-size: 40px;
                         font-family: Montserrat, sans-serif;
                         font-weight: bold;
@@ -948,7 +934,7 @@ class IndexController extends Controller
                   <td style="height: 10px">
                     <p
                       style="
-                        
+                        color: #111111;
                         font-weight: 500;
                         font-size: 18px;
                         text-align: center;
@@ -957,7 +943,7 @@ class IndexController extends Controller
                         font-family: Montserrat, sans-serif;
                         line-height: 30px;
                       "
-                    >
+                    > Hola ' . $name . ' <br>
                       En breve estaremos comunicandonos contigo.
                     </p>
                   </td>
@@ -972,7 +958,7 @@ class IndexController extends Controller
                       href="' . $appUrl . '"
                       style="
                         text-decoration: none;
-                        background-color: #006bf6;
+                        background-color: #FD1F4A;
                         color: white;
                         padding: 10px 16px;
                         display: inline-flex;
@@ -995,8 +981,8 @@ class IndexController extends Controller
         </body>
       </html>
       ';
-      $mail->addBCC('atencionalcliente@boostperu.com.pe', 'Atencion al cliente', );
-      $mail->addBCC('jefecomercial@boostperu.com.pe', 'Jefe Comercial', );
+      // $mail->addBCC('atencionalcliente@boostperu.com.pe', 'Atencion al cliente', );
+      // $mail->addBCC('jefecomercial@boostperu.com.pe', 'Jefe Comercial', );
       $mail->isHTML(true);
       $mail->send();
     } catch (\Throwable $th) {
@@ -1040,7 +1026,7 @@ class IndexController extends Controller
                 height: 900px;
                 margin: 0 auto;
                 text-align: center;
-                 background-image:url(' . $appUrl . '/images/Ellipse_18.png),  url(' . $appUrl . '/images/Tabpanel.png);
+                 background-image:url(' . $appUrl . '/mail/fondo.png);
                 background-repeat: no-repeat, no-repeat;
                 background-position: center bottom , center bottom;;
                 background-size: fit , fit;
@@ -1058,7 +1044,7 @@ class IndexController extends Controller
                       margin: 40px;
                     "
                   >
-                     <img src="' . $appUrl . '/images/Group1.png" alt="Boost_Peru"  style="
+                     <img src="' . $appUrl . '/mail/logo.png" alt="wolfcar"  style="
                     margin: auto;
                   "/>
                   </th>
@@ -1117,7 +1103,7 @@ class IndexController extends Controller
                   <td style="height: 10px">
                     <p
                       style="
-                        color: #4d86c3;
+                        color: #111111;
                         font-weight: 500;
                         font-size: 18px;
                         text-align: center;
@@ -1141,7 +1127,7 @@ class IndexController extends Controller
                       href="' . $appUrl . '"
                       style="
                         text-decoration: none;
-                        background-color: #006bf6;
+                        background-color: #FD1F4A;
                         color: white;
                         padding: 10px 16px;
                         display: inline-flex;
@@ -1164,8 +1150,8 @@ class IndexController extends Controller
         </body>
       </html>
       ';
-      $mail->addBCC('atencionalcliente@boostperu.com.pe', 'Atencion al cliente', );
-      $mail->addBCC('jefecomercial@boostperu.com.pe', 'Jefe Comercial', );
+      // $mail->addBCC('atencionalcliente@boostperu.com.pe', 'Atencion al cliente', );
+      // $mail->addBCC('jefecomercial@boostperu.com.pe', 'Jefe Comercial', );
       $mail->isHTML(true);
       $mail->send();
     } catch (\Throwable $th) {

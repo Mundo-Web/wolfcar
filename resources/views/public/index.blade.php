@@ -39,11 +39,24 @@
             <h2 class="font-Helvetica_Bold text-[#010101] text-4xl">Autoradios IOS</h2>
         </div>
 
-        <div class="flex flex-wrap justify-between gap-8 ">
+        <div class="hidden lg:flex lg:flex-wrap justify-between gap-8 ">
             @foreach ($logos as $logo)
                 <img class="w-32 object-contain mx-auto" src="{{ asset($logo->url_image) }}" />
             @endforeach
         </div>
+        
+        <div class="flex lg:hidden">
+          <div class="flex  flex-row swiper logos w-full">
+                <div class="swiper-wrapper">
+                  @foreach ($logos as $logo)
+                    <div class="swiper-slide">
+                          <img class="w-32 object-contain mx-auto" src="{{ asset($logo->url_image) }}" /> 
+                    </div>
+                  @endforeach
+                </div>
+          </div>
+        </div>
+
     </section>
    @endif
 
@@ -64,12 +77,12 @@
               <h3 class="text-[#FD1F4A] font-semibold font-Helvetica_Light text-lg">Descuentos especiales</h3>
               <h1 class="text-2xl md:text-3xl font-semibold font-Helvetica_Medium text-[#111] tracking-wide">Los más vendidos</h1>
             </div>
-            <div class="flex flex-col items-center justify-center">
+            <div class="flex flex-col items-start md:items-center justify-center">
               <a href="/catalogo" class="bg-[#FD1F4A] text-base font-normal text-white text-center font-Helvetica_Medium px-6 py-3 rounded-3xl flex items-center justify-center w-auto">
-                Vamos a comprar</a>
+                Ver productos</a>
             </div>
           </div>
-          @foreach ($productosPupulares->chunk(4) as $taken)
+          @foreach ($productosPupulares->chunk(8) as $taken)
           
             <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 md:flex-row gap-4 mt-14 w-full">
              
@@ -197,9 +210,9 @@
             <h3 class="text-[#FD1F4A] font-semibold font-Helvetica_Light text-lg">Apúrate que se acaban</h3>
             <h1 class="text-2xl md:text-3xl font-semibold font-Helvetica_Medium text-[#111] tracking-wide">Equipos nuevos</h1>
           </div>
-          <div class="flex flex-col items-center justify-center">
+          <div class="flex flex-col items-start md:items-center justify-center">
             <a href="/catalogo" class="bg-[#FD1F4A] text-base font-normal text-white text-center font-Helvetica_Medium px-6 py-3 rounded-3xl flex items-center justify-center w-auto">
-              Autoradios</a>
+              Ver productos</a>
           </div>
         </div>
         @foreach ($ultimosProductos->chunk(4) as $taken)
@@ -317,6 +330,37 @@
       });
 
     })
+
+
+     var swiper = new Swiper(".logos", {
+            slidesPerView:3,
+            spaceBetween: 20,
+            loop: true,
+            grabCursor: true,
+            centeredSlides: false,
+            initialSlide: 0,
+            pagination: {
+                el: ".swiper-pagination-logos",
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                550: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+                680: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                },
+                750: {
+                    slidesPerView: 5,
+                    spaceBetween: 20,
+                }
+            },
+        });
   </script>
 
 

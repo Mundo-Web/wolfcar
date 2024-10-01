@@ -104,7 +104,7 @@
 
                 <div class="flex flex-col justify-start items-center gap-5">
                     <div id="containerProductosdetail"
-                        class="w-full flex justify-center items-center h-[330px] 2xs:h-[400px] sm:h-[450px] xl:h-[550px] rounded-3xl overflow-hidden">
+                        class="w-full flex justify-center items-center aspect-square overflow-hidden">
                         <img src="{{ asset($product->imagen) }}" alt="computer" class="w-full h-full object-contain"
                             data-aos="fade-up" data-aos-offset="150"
                             onerror="this.onerror=null;this.src='/images/img/noimagen.jpg';">
@@ -129,7 +129,7 @@
                       @endforeach
                     @endforeach
                     <div class="flex flex-col">
-                        <h3 class="font-Helvetica_Medium text-4xl text-[#111111] font-normal tracking-tight">
+                        <h3 id="nombreproducto" class="font-Helvetica_Medium text-3xl text-[#111111] font-normal tracking-tight">
                             {{ $product->producto }}</h3>
                         {{-- <p class="font-Inter_Regular text-base gap-2">Disponibilidad:
                             @if ($product->stock == 0)
@@ -275,15 +275,15 @@
 
                     <div class="flex flex-col gap-2" data-aos="fade-up">
                          <div class="flex flex-row gap-5 justify-start items-center w-full">
-                                <a
+                                <a  target="_blank" id="chatonline"
                                     class="bg-[#25D366] flex justify-center items-center w-full py-3  text-white text-center rounded-full font-Helvetica_Medium tracking-wide text-lg hover:bg-[#1fcf61]">
-                                    <span class="text-sm mr-3">Agente Emilio</span>Consulta vía WhatsApp
+                                    <span class="text-sm mr-3">Agente {{$general->support_one}}</span>Consulta vía WhatsApp
                                 </a>
                           </div>
                           <div class="flex flex-row gap-5 justify-start items-center w-full">
-                                <a
+                                <a  target="_blank" id="chatonline2"
                                     class="bg-[#25D366] flex justify-center items-center w-full py-3  text-white text-center rounded-full font-Helvetica_Medium tracking-wide text-lg hover:bg-[#1fcf61]">
-                                    <span class="text-sm mr-3">Agente Emilio</span>Consulta vía WhatsApp
+                                    <span class="text-sm mr-3">Agente {{$general->support_two}}</span>Consulta vía WhatsApp
                                 </a>
                           </div>
                     </div>
@@ -295,7 +295,7 @@
         <section class="w-full px-[5%] md:px-[8%] py-12 lg:py-20">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
               <div class="flex flex-col gap-4 justify-center">
-                   <h3 class="font-Helvetica_Medium text-4xl text-[#111111] font-normal tracking-tight">
+                   <h3 class="font-Helvetica_Medium text-3xl lg:text-4xl text-[#111111] font-normal tracking-tight">
                             Llamadas, mensajes, música y mucho más ¡Actualiza tu auto!</h3>
                    <p class="font-medium text-base font-Helvetica_Light w-full text-[#444]">
                             Apple CarPlay & Android Auto hace que resulte más fácil que nunca navegar, comunicarse y 
@@ -319,7 +319,7 @@
               </div>
 
               <div class="flex flex-col gap-4 justify-center order-1 lg:order-2">
-                   <h3 class="font-Helvetica_Medium text-4xl text-[#111111] font-normal tracking-tight">
+                   <h3 class="font-Helvetica_Medium text-3xl lg:text-4xl text-[#111111] font-normal tracking-tight">
                             Disfrute de sus aplicaciones favoritas</h3>
                    <p class="font-medium text-base font-Helvetica_Light w-full text-[#444]">
                             ¿Le gusta utilizar Spotify, Apple Music o cualquier otra plataforma en línea? 
@@ -332,7 +332,7 @@
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-10">
               <div class="flex flex-col gap-4 justify-center">
-                   <h3 class="font-Helvetica_Medium text-4xl text-[#111111] font-normal tracking-tight">
+                   <h3 class="font-Helvetica_Medium text-3xl lg:text-4xl text-[#111111] font-normal tracking-tight">
                             ¿Necesitas instalación?</h3>
                    <p class="font-medium text-base font-Helvetica_Light w-full text-[#444]">
                             Contamos con Talleres especializados ubicados en los puntos más céntricos de Lima y 
@@ -359,9 +359,9 @@
             <div class="w-full px-[5%] md:px-[8%]">
                 <div class="flex flex-col">
                     <h3 class="text-lg font-Helvetica_Light tracking-tight text-[#FD1F4A]">Apúrate que se acaban</h3>
-                    <h1 class="text-4xl font-Helvetica_Medium tracking-tight">También te puede interesar</h1>
+                    <h1 class="text-3xl lg:text-4xl font-Helvetica_Medium tracking-tight">También te puede interesar</h1>
                 </div>
-                <div class="grid grid-cols-4 gap-4 mt-14 w-full">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-14 w-full">
                     @foreach ($ProdComplementarios->take(4) as $item)
                         {{-- <x-product.container-combinalo width="" height="h-[400px]" bgcolor="bg-[#FFFFFF]"
               textpx="text-[20px]" :item="$item" /> --}}
@@ -376,6 +376,78 @@
     </main>
 
 @section('scripts_importados')
+
+   <script>
+        $(document).ready(function() {
+            $('#chatonline').click(function() {
+
+                function isMobile() {
+                    if (sessionStorage.desktop)
+                        return false;
+                    else if (localStorage.mobile)
+                        return true;
+                    var mobile = ['iphone', 'ipad', 'android', 'blackberry', 'nokia', 'opera mini',
+                        'windows mobile', 'windows phone', 'iemobile'
+                    ];
+                    for (var i in mobile)
+                        if (navigator.userAgent.toLowerCase().indexOf(mobile[i].toLowerCase()) > 0)
+                            return true;
+                    return false;
+                }
+
+                setTimeout(function() {
+
+                    telefono2 = '{{$general->whatsapp1}}';
+                    nombre2 = $('#nombreproducto').text();
+                    mensaje2 = 'send?phone=' + telefono2 +
+                        '&text=Hola, quiero comunicarme con un asesor.%0AEstoy interesad@ en el producto *' +
+                        nombre2 + '*.';
+
+                    if (isMobile()) {
+                        window.open('https://api.whatsapp.com/' + mensaje2, '_blank');
+                    } else {
+                        window.open('https://web.whatsapp.com/' + mensaje2, '_blank');
+                    }
+                }, 200);
+            });
+        });
+
+
+        $(document).ready(function() {
+            $('#chatonline2').click(function() {
+
+                function isMobile() {
+                    if (sessionStorage.desktop)
+                        return false;
+                    else if (localStorage.mobile)
+                        return true;
+                    var mobile = ['iphone', 'ipad', 'android', 'blackberry', 'nokia', 'opera mini',
+                        'windows mobile', 'windows phone', 'iemobile'
+                    ];
+                    for (var i in mobile)
+                        if (navigator.userAgent.toLowerCase().indexOf(mobile[i].toLowerCase()) > 0)
+                            return true;
+                    return false;
+                }
+
+                setTimeout(function() {
+
+                    telefono3 = '{{$general->whatsapp2}}';
+                    nombre3 = $('#nombreproducto').text();
+                    mensaje3 = 'send?phone=' + telefono3 +
+                        '&text=Hola, quiero comunicarme con un asesor.%0AEstoy interesad@ en el producto *' +
+                        nombre2 + '*.';
+
+                    if (isMobile()) {
+                        window.open('https://api.whatsapp.com/' + mensaje3, '_blank');
+                    } else {
+                        window.open('https://web.whatsapp.com/' + mensaje3, '_blank');
+                    }
+                }, 200);
+            });
+        });
+  </script>
+
   <script>
     var headerServices = new Swiper(".productos-relacionados", {
       slidesPerView: 4,
@@ -610,6 +682,8 @@
       });
     })
   </script>
+
+ 
 
 
 @stop

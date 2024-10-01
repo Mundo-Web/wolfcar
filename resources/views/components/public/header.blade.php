@@ -296,14 +296,14 @@
                             <span class="underline-this">Inicio</span>
                         </a>
 
-                        <a id="productos-link" href="{{ route('Catalogo.jsx') }}" class="font-medium ">
+                        <a id="productos-link" href="{{ route('Catalogo.jsx', 1) }}" class="font-medium ">
                             <span class="underline-this">Autoradios</span>
                             {{-- <div id="productos-link-h" class="w-0"></div> --}}
 
                         </a>
 
                         {{-- @if ($offerExists) --}}
-                        <a href="{{ route('Ofertas.jsx') }}" class="font-medium hover:opacity-75">
+                        <a href="{{ route('Catalogo.jsx', 2) }}" class="font-medium hover:opacity-75">
                             <span class="underline-this">Accesorios</span>
                         </a>
                         {{-- @endif --}}
