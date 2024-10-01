@@ -12,7 +12,7 @@
 </style>
 
 @section('content')
-  <section class="w-11/12 mx-auto font-poppins">
+  <section class="w-11/12 mx-auto font-Helvetica_Medium mt-5">
     @if ($errors->has('g-recaptcha-response'))
       <span class="help-block">
         <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
@@ -193,7 +193,7 @@
 
         <div class="flex flex-row col-span-2 gap-2 ">
           <input type="submit" value="Enviar a libro de reclamaciones" id="btnAjax"
-            class="col-span-4 text-white bg-[#006BF6] py-3 rounded-2xl cursor-pointer border-2 font-semibold text-[16px] text-center border-none w-full md:w-auto px-10 inline-block" />
+            class="col-span-4 text-white bg-[#FD1F4A] py-3 rounded-2xl cursor-pointer border-2 font-semibold text-[16px] text-center border-none w-full md:w-auto px-10 inline-block" />
         </div>
 
       </div>
