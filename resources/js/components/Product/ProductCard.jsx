@@ -26,9 +26,9 @@ const ProductCard = ({ item, width, bgcolor, is_reseller }) => {
             </div>
           ))}
           {
-            item.descuento > 0 && <div className="px-4 mb-1">
+            item.descuento > 0 && <div className="px-0 lg:px-4 mb-1">
               <span
-                className="block font-semibold text-[8px] md:text-[12px] bg-black py-2 px-3 flex-initial w-full text-center text-white rounded-[5px] relative top-[18px] z-10"
+                className="block font-semibold text-[8px] md:text-[12px] bg-black py-2 px-3 flex-initial w-full text-center text-white rounded-[5px] relative top-1 lg:top-[18px] z-10"
                 style={{ backgroundColor: '#10c469' }}
               >
                 -{Math.round(100 - ((item.descuento * 100) / item.precio))}%
@@ -112,11 +112,11 @@ const ProductCard = ({ item, width, bgcolor, is_reseller }) => {
               <span className="text-[#FD1F4A] font-Helvetica_Medium font-bold">{item.descuento > 0 ? 
                 
               <div className='flex flex-col justify-start items-center'>
-                <span className='text-lg'>S/. {item.descuento}</span>
+                <span className='text-base'>S/. {item.descuento}</span>
               </div> : 
 
               <div className='flex flex-col justify-start items-center text-lg '>
-                <span className='font-bold text-lg'>S/. {item.precio}</span>
+                <span className='font-bold text-base'>S/. {item.precio}</span>
               </div>
 
               }
