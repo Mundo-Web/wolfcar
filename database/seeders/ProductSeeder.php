@@ -83,12 +83,19 @@ class ProductSeeder extends Seeder
 
                 foreach ($images as $key => $image_name) {
                     $image = "storage/images/productos/{$image_name}";
-                    if ($key == 0) $product->imagen = $image;
-                    // if ($key == 1) $product->imagen_ambiente = $image;
-                    else Galerie::create([
-                        'product_id' => $product->id,
-                        'imagen' => $image
-                    ]);
+                    
+                    if ($key == 0) {
+                        $product->imagen = $image;
+                    } elseif ($key == 1) {
+                        $product->imagen_ambiente = $image;
+                    }
+                
+                    if ($key >= 1) {
+                        Galerie::create([
+                            'product_id' => $product->id,
+                            'imagen' => $image
+                        ]);
+                    }
                 }
 
                 $product->save();
