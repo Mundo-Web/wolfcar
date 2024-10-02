@@ -53,10 +53,10 @@ class ProductSeeder extends Seeder
                 $cost = str_replace(',', '.', Text::keep($row[12] ?? '', '0123456789,'));
                 $discount = str_replace(',', '.', Text::keep($row[9] ?? '', '0123456789,'));
 
-                $product = Products::updateOrCreate(['sku' => $row[5]], [
+                $product = Products::updateOrCreate(['sku' => ucfirst($row[5])], [
                     'categoria_id' => $category->id,
                     //'subcategory_id' => $subcategory->id,
-                    'sku' => $row[5],
+                    'sku' => ucfirst($row[5]),
                     'producto' => $row[6],
                     'color' => $row[7],
                     'description' => $row[8],
@@ -70,26 +70,27 @@ class ProductSeeder extends Seeder
                     'visible' => true
                 ]);
 
-                // $path2search = "public/storage/images/products/{$category->id}/";
+                $path2search = "public/storage/images/productos/";
 
-                // $images = [];
-                // try {
-                //     $images = File::scan($path2search, [
-                //         'type' => 'file',
-                //         'startsWith' => $product->sku,
-                //         'desc' => true
-                //     ]);
-                // } catch (\Throwable $th) {}
+                $images = [];
+                try {
+                    $images = File::scan($path2search, [
+                        'type' => 'file',
+                        'startsWith' => $product->sku,
+                        'desc' => true
+                    ]);
+                } catch (\Throwable $th) {}
 
-                // foreach ($images as $key => $image_name) {
-                //     $image = "storage/images/products/{$category->id}/{$image_name}";
-                //     if ($key == 0) $product->imagen = $image;
-                //     if ($key == 1) $product->imagen_ambiente = $image;
-                //     else Galerie::create([
-                //         'product_id' => $product->id,
-                //         'imagen' => $image
-                //     ]);
-                // }
+                foreach ($images as $key => $image_name) {
+                    $image = "storage/images/productos/{$image_name}";
+                    if ($key == 0) $product->imagen = $image;
+                    // if ($key == 1) $product->imagen_ambiente = $image;
+                    else Galerie::create([
+                        'product_id' => $product->id,
+                        'imagen' => $image
+                    ]);
+                }
+
                 $product->save();
             }
         }, 'storage/app/utils/Products.xlsx');
