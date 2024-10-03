@@ -1,6 +1,6 @@
 <div x-data="{ showAmbiente: false }" @mouseenter="showAmbiente = true" @mouseleave="showAmbiente = false"
   class="flex flex-col relative w-full md:{{ $width }} {{ $bgcolor }} aspect-square md:min-h-[425px] ">
-  <div class="{{ $bgcolor }} product_container basis-4/5 flex flex-col justify-center relative">
+  <div class="{{ $bgcolor }} product_container basis-full flex flex-col justify-center relative aspect-square border">
     {{-- @php
       echo json_encode($item->tags);
     @endphp --}}
@@ -22,7 +22,7 @@
     </div>
 
     <div>
-      <div class="relative flex justify-center items-center h-[320px]  border">
+      <div class="relative flex justify-center items-center h-[320px]">
         @php
           $category = $item->categoria();
         @endphp
@@ -90,7 +90,7 @@
 
   <a href="{{ route('producto', $item->id) }}">
     <h2 id="h2Container"
-      class="text-base  text-left line-clamp-2  text-ellipsis font-Helvetica_Medium tracking-tight  cortartexto tippy max-h-12 md:min-h-12 mt-3 md:mt-0"
+      class="text-base text-left line-clamp-2  text-ellipsis font-Helvetica_Medium tracking-tight  cortartexto tippy max-h-12 md:min-h-12 mt-3"
       title="{{ $item->producto }}">
       {{-- {{ mb_strimwidth($item->producto, 0, 100, '...') }} --}}
       {{$item->producto}}
