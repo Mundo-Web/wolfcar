@@ -16,6 +16,7 @@ const FilterItem = ({ title, children, className = 'flex flex-col gap-3 w-full '
           {item[itemImg] ? (
             <img className="w-14 h-5 object-contain" src={`/${item[itemImg]}`} alt={item[itemName]} />
           ) : null}
+          
         </div>
         )
       })}

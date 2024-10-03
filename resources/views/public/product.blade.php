@@ -120,7 +120,7 @@
                                   @isset($valoresdeatributo)
                                       @foreach($valoresdeatributo as $valorat)
                                         @if($valorat->attribute_value_id == $value->id)
-                                          <img src={{asset($value->imagen)}} class="w-24 h-12 object-contain"/>
+                                          <img src="{{ asset($value->imagen) }}" class="w-24 h-12 object-contain"/>
                                         @endif
                                       @endforeach
                                   @endisset
