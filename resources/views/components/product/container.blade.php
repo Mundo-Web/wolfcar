@@ -22,7 +22,7 @@
     </div>
 
     <div>
-      <div class="relative flex justify-center items-center h-[302px] border">
+      <div class="relative flex justify-center items-center h-[320px]  border">
         @php
           $category = $item->categoria();
         @endphp
@@ -33,7 +33,7 @@
             x-transition:leave="transition ease-in duration-300 transform"
             x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
             src="{{ asset($item->imagen) }}" alt="{{ $item->name }}"
-            class="w-full h-[300px] object-contain md:object-cover absolute inset-0"
+            class="w-full h-[320px] object-contain md:object-cover absolute inset-0"
             onerror="this.onerror=null;this.src='/images/img/noimagen.jpg';" />
         @else
           <img x-show="{{ isset($item->imagen_ambiente) }} || !showAmbiente"
@@ -42,7 +42,7 @@
             x-transition:leave="transition ease-in duration-300 transform"
             x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
             src="{{ asset('images/img/noimagen.jpg') }}" alt="imagen_alternativa"
-            class="w-full h-[300px] object-contain md:object-cover absolute inset-0" />
+            class="w-full h-[320px] object-contain md:object-cover absolute inset-0" />
         @endif
         
         @isset($item->imagen_ambiente)
@@ -52,7 +52,7 @@
               x-transition:leave="transition ease-in duration-300 transform"
               x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
               src="{{ asset($item->imagen_ambiente) }}" alt="{{ $item->name }}"
-              class="w-full h-[300px] object-cover absolute inset-0 object-center"
+              class="w-full h-[320px] object-contain md:object-cover absolute inset-0 object-center"
               onerror="this.onerror=null;this.src='/images/img/noimagen.jpg';" />
           @else
             <img x-show="showAmbiente" x-transition:enter="transition ease-out duration-300 transform"
@@ -60,7 +60,7 @@
               x-transition:leave="transition ease-in duration-300 transform"
               x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
               src="{{ asset('images/img/noimagen.jpg') }}" alt="imagen_alternativa"
-              class="w-full h-[300px] object-contain object-center md:object-cover absolute inset-0" />
+              class="w-full h-[320px] object-contain md:object-cover object-center absolute inset-0" />
           @endif
         @endisset
 
