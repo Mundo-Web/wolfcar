@@ -11,10 +11,10 @@ class EmailConfig
         $mail = new PHPMailer(true);
         // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->isSMTP();
-        $mail->Host = 'mail.boostperu.com.pe';
+        $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'atencionalcliente@boostperu.com.pe';
-        $mail->Password = 'atencionalcliente#2024';
+        $mail->Username = 'diegomartinez1996x@gmail.com';
+        $mail->Password = 'piqutsbcfdzsrnkp';
         // $mail->Username = 'boostperuatencion@gmail.com';
         // $mail->Password = 'hlabkcttomghufms';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
