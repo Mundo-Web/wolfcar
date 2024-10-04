@@ -91,13 +91,13 @@
                             <div class="flex flex-col flex-1 shrink basis-0 min-w-[240px]">
                                 <label for="nombre" class="text-[15px] font-medium font-Helvetica_Medium">Nombre</label>
                                 <input id="nombre" type="text" placeholder="Ingresa tu nombre" name="name"
-                                    class="px-4 py-3 mt-1.5 w-full text-base font-light bg-white rounded-lg border border-gray-300 border-solid shadow-sm"
+                                    class="px-4 py-3 mt-1.5 w-full text-base font-light bg-white rounded-lg border focus:ring-[#FD1F4A] focus:border-[#FD1F4A] border-gray-300 border-solid shadow-sm"
                                     aria-label="Ingresa tu nombre">
                             </div>
                             <div class="flex flex-col flex-1 shrink basis-0 min-w-[240px]">
                                 <label for="apellido" class="text-[15px] font-medium font-Helvetica_Medium">Apellido</label>
                                 <input id="apellido" type="text" placeholder="Ingresa tu apellido" name="lastname"
-                                    class="px-4 py-3 mt-1.5 w-full text-base font-light bg-white rounded-lg border border-gray-300 border-solid shadow-sm"
+                                    class="px-4 py-3 mt-1.5 w-full text-base font-light bg-white rounded-lg border focus:ring-[#FD1F4A] focus:border-[#FD1F4A] border-gray-300 border-solid shadow-sm"
                                     aria-label="Ingresa tu apellido">
                             </div>
                         </div>
@@ -105,14 +105,14 @@
                             <label for="email" class="text-[15px] font-medium font-Helvetica_Medium">E-mail</label>
                             <input id="email" type="email" placeholder="Ingresa tu dirección de correo electrónico"
                                 name="email"
-                                class="px-4 py-3 mt-1.5 w-full text-base font-light bg-white rounded-lg border border-gray-300 border-solid shadow-sm max-md:max-w-full"
+                                class="px-4 py-3 mt-1.5 w-full text-base font-light bg-white rounded-lg border focus:ring-[#FD1F4A] focus:border-[#FD1F4A] border-gray-300 border-solid shadow-sm max-md:max-w-full"
                                 aria-label="Ingresa tu dirección de correo electrónico">
                         </div>
                         <div class="flex flex-col mt-6 w-full whitespace-nowrap text-neutral-900 max-md:max-w-full">
                             <label for="telefono"
                                 class="text-[15px] font-medium max-md:max-w-full font-Helvetica_Medium">Telefono</label>
                             <input id="telefono" type="tel" placeholder="+51..." name="phone"
-                                class="px-4 py-3 mt-1.5 w-full text-base font-light bg-white rounded-lg border border-gray-300 border-solid shadow-sm max-md:max-w-full"
+                                class="px-4 py-3 mt-1.5 w-full text-base font-light bg-white rounded-lg border focus:ring-[#FD1F4A] focus:border-[#FD1F4A] border-gray-300 border-solid shadow-sm max-md:max-w-full"
                                 aria-label="Ingresa tu número de teléfono">
                         </div>
                         <div class="flex flex-col mt-6 w-full text-neutral-900 max-md:max-w-full">
@@ -120,19 +120,21 @@
                                 class="text-[15px] font-medium max-md:max-w-full font-Helvetica_Medium">Escribe un
                                 mensaje</label>
                             <textarea id="mensaje" placeholder="Escríbenos tu pregunta aquí" name="message"
-                                class="px-4 py-3 mt-1.5 w-full text-base font-light bg-white rounded-lg border border-gray-300 border-solid shadow-sm max-md:max-w-full"
+                                class="px-4 py-3 mt-1.5 w-full text-base font-light bg-white rounded-lg border focus:ring-[#FD1F4A] focus:border-[#FD1F4A] border-gray-300 border-solid shadow-sm max-md:max-w-full"
                                 rows="3" aria-label="Escribe tu mensaje"></textarea>
                         </div>
                         <div class="flex flex-wrap gap-3 items-center mt-6 w-full max-md:max-w-full">
                             <input type="checkbox" id="privacy-policy" required
-                                class="w-5 h-5 bg-white rounded-md border border-gray-300 border-solid">
+                                class="w-5 h-5 bg-white rounded-md border border-gray-300 border-solid text-[#FD1F4A] focus:ring-0">
                             <label for="privacy-policy"
                                 class="text-[15px] font-light text-neutral-900 font-Helvetica_Light">Usted acepta nuestra
                                 amigable política de privacidad.</label>
                         </div>
-                        <button type="submit"
-                            class="font-Helvetica_Medium tracking-wider gap-2.5 self-stretch px-4 py-3 mt-8 w-full text-base font-bold text-center text-white bg-[#FD1F4A] rounded-3xl min-h-[43px] max-md:max-w-full">Enviar
-                            mensaje</button>
+                       
+                            <button type="submit"
+                                class="font-Helvetica_Medium tracking-wider cursor-pointer gap-2.5 self-stretch px-4 py-3 mt-8 w-full text-base font-bold text-center text-white bg-[#FD1F4A] rounded-3xl min-h-[43px] max-md:max-w-full">Enviar
+                                mensaje</button>
+                      
                     </form>
                 </div>
             </div>
