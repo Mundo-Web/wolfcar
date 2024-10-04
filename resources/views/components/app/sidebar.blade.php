@@ -75,9 +75,9 @@
             </x-slot>
           @endif
         </x-menu.item>
-        <x-menu.item id="testimonios" href="{{ route('testimonios.index') }}" icon="fas fa-star">
+        {{-- <x-menu.item id="testimonios" href="{{ route('testimonios.index') }}" icon="fas fa-star">
           Testimonios
-        </x-menu.item>
+        </x-menu.item> --}}
       </x-menu.group>
 
       <x-menu.group title="Productos">
