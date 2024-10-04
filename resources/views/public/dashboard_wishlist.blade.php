@@ -50,10 +50,10 @@
 
                     <td>
                       @if ($item->products->descuento > 0)
-                        <span class="text-[#006BF6] text-base font-bold">S/. {{ $item->products->descuento }}</span>
+                        <span class="text-[#fd1f4a] text-base font-bold">S/. {{ $item->products->descuento }}</span>
                         <span class="line-through">{{ $item->products->precio }}</span>
                       @else
-                        <span class="text-[#006BF6] text-base font-bold">S/. {{ $item->products->precio }}</span>
+                        <span class="text-[#fd1f4a] text-base font-bold">S/. {{ $item->products->precio }}</span>
                       @endif
                     </td> <!-- Assuming your Product model has a 'price' attribute -->
                   </tr>

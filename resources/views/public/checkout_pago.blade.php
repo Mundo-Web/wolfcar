@@ -491,7 +491,7 @@
 
       const precioProductos = getTotalPrice()
       const precioEnvio = getCostoEnvio()
-
+      
 
       let existeRuc = $('#RUC').length == '' ? false : true
       let ExisteDni = $('#DNI').length == '' ? false : true
@@ -553,7 +553,7 @@
 
 
       Culqi.settings({
-        title: '{{ config('app.name') }}',
+        title: '{{env('APP_NAME')}}',
         currency: 'PEN',
         amount: Math.round((precioProductos + precioEnvio) * 100),
       });
@@ -717,6 +717,7 @@
       $('#itemTotal').text(`S/. ${total.toFixed(2)} `)
       $('#itemsTotal').text(`S/. ${total.toFixed(2)} `)
     }
+    
     const getTotalPrice = () => {
       const carrito = Local.get('carrito') ?? []
       const productPrice = carrito.reduce((total, x) => {

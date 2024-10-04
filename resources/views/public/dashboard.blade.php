@@ -83,7 +83,7 @@
 
             <div class="flex gap-5 flex-col md:flex-row">
               <a type="submit" value="Guardar cambios" id="botonGuardar"
-                class="text-white bg-[#006BF6] py-3 px-5 rounded-2xl cursor-pointer border-2 font-semibold text-[16px] text-center border-none inline-block">Guardar
+                class="text-white bg-[#fd1f4a] py-3 px-5 rounded-2xl cursor-pointer border-2 font-semibold text-[16px] text-center border-none inline-block">Guardar
                 cambios</a>
 
               <a onclick="window.location.href = window.location.href;"

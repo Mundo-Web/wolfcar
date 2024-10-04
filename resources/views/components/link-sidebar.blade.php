@@ -1,6 +1,6 @@
 <a class="group" href="{{ $href }}">
   <div
-    class="@if (in_array(Request::segment(2), [$id ?? ''])) {{ 'bg-[#006BF6]' }} @endif text-white py-2 px-4 rounded-2xl cursor-pointer text-[16px] border-none w-64 flex justify-between items-center group-hover:bg-[#006BF6]">
+    class="@if (in_array(Request::segment(2), [$id ?? ''])) {{ 'bg-[#fd1f4a]' }} @endif text-white py-2 px-4 rounded-2xl cursor-pointer text-[16px] border-none w-64 flex justify-between items-center group-hover:bg-[#fd1f4a]">
     <p
       class="font-medium text-[16px] text-[#254678] group-hover:text-white @if (in_array(Request::segment(2), [$id ?? ''])) {{ 'text-white' }} @endif">
       {{ $slot }}

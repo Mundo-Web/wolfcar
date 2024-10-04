@@ -191,8 +191,7 @@
                                 <a class="block bg-[#F5F5F7] hover:bg-[#ebebf2] p-3" href="/producto/{{ $x->id }}" tippy> {{ $x->color }}</a>
                                 @endforeach
                             </div>
-
-                    @endif
+                     @endif
                     {{-- @if (!$product->attributes->isEmpty())
                         <div class="flex flex-col gap-8 mt-4 font-Inter_Regular text-lg">
                             @php

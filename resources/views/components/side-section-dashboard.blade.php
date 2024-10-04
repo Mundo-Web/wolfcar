@@ -6,7 +6,7 @@
           <img class="w-full h-full rounded-full" src="{{ Auth::user()->profile_photo_url }}" width="32" height="32"
             alt="{{ Auth::user()->name }}" />
           <label for="upload_image"
-            class="bg-[#006BF6] rounded-full w-7 h-7 flex justify-center items-center absolute bottom-0 right-0 cursor-pointer">
+            class="bg-[#fd1f4a] rounded-full w-7 h-7 flex justify-center items-center absolute bottom-0 right-0 cursor-pointer">
             <img src="{{ asset('/images/svg/upload_photo.svg') }}" alt="upload photo" />
           </label>
           <form action="{{ route('cambiofoto') }}" id="avatarform" method="POST" enctype='multipart/form-data'>
@@ -38,7 +38,7 @@
         <form method="POST" action="{{ route('logout') }}" x-data class="group">
           @csrf
           <button type="submit" href="{{ route('logout') }}"
-            class="rounded-2xl bg-[#F3F5F7] md:bg-[#FCFCFC] group-hover:bg-[#006BF6]  group-hover:text-white text-[#151515] font-medium text-[16px] py-3 px-4 flex justify-between items-center w-64 mt-0 md:mt-[200px]">
+            class="rounded-2xl bg-[#F3F5F7] md:bg-[#FCFCFC] group-hover:bg-[#fd1f4a]  group-hover:text-white text-[#151515] font-medium text-[16px] py-3 px-4 flex justify-between items-center w-64 mt-0 md:mt-[200px]">
             <span>Cerrar Sesión</span>
             <svg width="20" height="18" viewBox="0 0 14 13" fill="none">
               <path class="group-hover:stroke-white"

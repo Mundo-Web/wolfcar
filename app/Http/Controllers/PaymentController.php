@@ -72,7 +72,7 @@ class PaymentController extends Controller
           $totalCost += $offerJpa->precio * $body['cart'][$key]['quantity'];
         }
       }
-
+     
       $sale->name = $body['contact']['name'];
       $sale->lastname = $body['contact']['lastname'];
       $sale->email = Auth::check() ? Auth::user()->email : $body['contact']['email'];
@@ -132,6 +132,7 @@ class PaymentController extends Controller
 
         SaleDetail::create([
           'sale_id' => $sale->id,
+          'category' => $productJpa->category,
           'product_image' => $productJpa->imagen,
           'product_name' => $productJpa->producto,
           'product_color' => $productJpa->color,
@@ -155,6 +156,7 @@ class PaymentController extends Controller
 
         SaleDetail::create([
           'sale_id' => $sale->id,
+          'category' => 'Combos',
           'product_image' => $offerJpa->imagen,
           'product_name' => $name,
           'product_color' => $offerJpa->color,

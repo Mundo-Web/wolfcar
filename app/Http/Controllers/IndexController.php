@@ -307,6 +307,7 @@ class IndexController extends Controller
 
 
     $url_env = env('APP_URL');
+    $app_name = env('APP_NAME');
     $culqi_public_key = env('CULQI_PUBLIC_KEY');
 
     $addresses = [];
@@ -325,7 +326,7 @@ class IndexController extends Controller
         ->exists();
     }
 
-    return view('public.checkout_pago', compact('url_env', 'districts', 'provinces', 'departments', 'detalleUsuario', 'categorias', 'destacados', 'culqi_public_key', 'addresses', 'hasDefaultAddress'));
+    return view('public.checkout_pago', compact('app_name','url_env', 'districts', 'provinces', 'departments', 'detalleUsuario', 'categorias', 'destacados', 'culqi_public_key', 'addresses', 'hasDefaultAddress'));
   }
 
   public function procesarPago(Request $request)
