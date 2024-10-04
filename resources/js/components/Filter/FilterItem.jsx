@@ -4,7 +4,7 @@ const FilterItem = ({ title, children, className = 'flex flex-col gap-3 w-full '
   const relativeId = title.toLowerCase().split(' ').filter(Boolean).join('-')
   return (<div className="flex flex-col gap-4 w-full">
     <h2 className="font-semibold tracking-wide font-Helvetica_Light">{title}</h2>
-    <div className='bg-black p-[1px] -mt-2 border-transparent'></div>
+    <div className='bg-black p-[1px] -mt-2'></div>
     <div className={className}>
       {children ? children : items.map(item => {
         return (
