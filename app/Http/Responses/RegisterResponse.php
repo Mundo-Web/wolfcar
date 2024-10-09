@@ -40,8 +40,8 @@ class RegisterResponse implements RegisterResponseContract
         $mensaje = "Gracias por registrarse en ".env('APP_NAME');
         $mail = EmailConfig::config($name, $mensaje);
         try {
-            $mail->addAddress($data['email']);
-            $mail->Body = '<html lang="es">
+          $mail->addAddress($data['email']);
+          $mail->Body = '<html lang="es">
             <head>
               <meta charset="UTF-8" />
               <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -65,14 +65,13 @@ class RegisterResponse implements RegisterResponseContract
                 <table
                   style="
                     width: 600px;
-                    height: 700px;
+                    height: 800px;
                     margin: 0 auto;
                     text-align: center;
-                    background-image:url(' . $appUrl . '/images/Ellipse_18.png),  url(' . $appUrl . '/images/Tabpanel.png);
-                  background-repeat: no-repeat, no-repeat;
-                  background-position: center bottom , center bottom;;
-                  background-size: fit , fit;
-                  background-color: #f9f9f9;
+                    background-image:url(' . $appUrl . '/mail/fondo.png);
+                    background-repeat: no-repeat, no-repeat;
+                    background-size: fit , fit;
+                    background-color: #f9f9f9;
                   "
                 >
                   <thead>
@@ -86,9 +85,9 @@ class RegisterResponse implements RegisterResponseContract
                           margin: 40px;
                         "
                       >
-                        <img src="' . $appUrl . '/images/Group1.png" alt="Boost_Peru"  style="
-                    margin: auto;
-                  "/>
+                        <img src="' . $appUrl . '/mail/logo.png" alt="Wolfcar"  style="
+                        margin: auto;
+                      "/>
                       </th>
                     </tr>
                   </thead>
@@ -97,7 +96,7 @@ class RegisterResponse implements RegisterResponseContract
                       <td style="height: 10px">
                         <p
                           style="
-                            color: #ffffff;
+                            color: #FD1F4A;
                             font-weight: 500;
                             font-size: 18px;
                             text-align: center;
@@ -107,7 +106,7 @@ class RegisterResponse implements RegisterResponseContract
                             line-height: 30px;
                           "
                         >
-                          <span style="display: block">Hola </span>
+                          <span style="display: block">Felicidades </span>
                         </p>
                       </td>
                     </tr>
@@ -115,29 +114,14 @@ class RegisterResponse implements RegisterResponseContract
                       <td style="height: 10px">
                         <p
                           style="
-                            color: #ffffff;
-                            font-size: 40px;
-                            font-family: Montserrat, sans-serif;
-                            line-height: 60px;
-                          "
-                        >
-                          <span style="display: block">' . $name . ' </span>
-                        </p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="height: 10px">
-                        <p
-                          style="
-                            color: #006BF6;
+                            color: #111111;
                             font-size: 40px;
                             font-family: Montserrat, sans-serif;
                             font-weight: bold;
                             line-height: 60px;
                           "
                         >
-                          !Gracias
-                          <span style="color: #ffffff">por escribirnos!</span>
+                          ¡Gracias por registrarte!
                         </p>
                       </td>
                     </tr>
@@ -145,48 +129,47 @@ class RegisterResponse implements RegisterResponseContract
                       <td style="height: 10px">
                         <p
                           style="
-                            color: #ffffff;
+                            color: #111111;
                             font-weight: 500;
                             font-size: 18px;
                             text-align: center;
-                            width: 250px;
+                            width: 400px;
                             margin: 0 auto;
                             font-family: Montserrat, sans-serif;
                             line-height: 30px;
                           "
-                        >
-                          En breve estaremos comunicandonos contigo.
+                        > Hola ' . $name . ' <br>
+                          <span >Ya puedes realizar compras en nuestra tienda.</span>
                         </p>
                       </td>
                     </tr>
                     <tr>
                       <td
                         style="
-                          display: flex;
-                          align-items: start;
-                          justify-content: center;
-                          padding-top: 20px;
-                        "
+                        text-align: center;
+                        vertical-align: baseline;
+                        padding-top:20px;
+                      "
                       >
                         <a
-                      href="' . $appUrl . '"
-                      style="
-                        text-decoration: none;
-                        background-color: #006bf6;
-                        color: white;
-                        padding: 10px 16px;
-                        display: inline-flex;
-                        justify-content: center;
-                        align-items: center;
-                        gap: 10px;
-                        font-weight: 600;
-                        font-family: Montserrat, sans-serif;
-                        font-size: 16px;
-                        border-radius: 30px;
-                      "
-                    >
-                      <span>Visita nuestra web</span>
-                    </a>
+                          href="' . $appUrl . '"
+                          style="
+                            text-decoration: none;
+                            background-color: #FD1F4A;
+                            color: white;
+                            padding: 16px 12px;
+                            display: inline-flex;
+                            justify-content: center;
+                            align-items: start;
+                            gap: 10px;
+                            font-weight: 600;
+                            font-family: Montserrat, sans-serif;
+                            font-size: 16px;
+                            border-radius: 10px;
+                          "
+                        >
+                          <span>Visita nuestra web</span>
+                        </a>
                       </td>
                     </tr>
                   </tbody>
@@ -195,9 +178,10 @@ class RegisterResponse implements RegisterResponseContract
             </body>
           </html>
           ';
-            $mail->isHTML(true);
-            $mail->send();
-            
+          // $mail->addBCC('atencionalcliente@boostperu.com.pe', 'Atencion al cliente', );
+          // $mail->addBCC('jefecomercial@boostperu.com.pe', 'Jefe Comercial', );
+          $mail->isHTML(true);
+          $mail->send();
         } catch (\Throwable $th) {
             //throw $th;
         }

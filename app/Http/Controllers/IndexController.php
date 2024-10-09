@@ -1025,12 +1025,11 @@ class IndexController extends Controller
             <table
               style="
                 width: 600px;
-                height: 900px;
+                height: 800px;
                 margin: 0 auto;
                 text-align: center;
-                 background-image:url(' . $appUrl . '/mail/fondo.png);
+                background-image:url(' . $appUrl . '/mail/fondo.png);
                 background-repeat: no-repeat, no-repeat;
-                background-position: center bottom , center bottom;;
                 background-size: fit , fit;
                 background-color: #f9f9f9;
               "
@@ -1046,7 +1045,7 @@ class IndexController extends Controller
                       margin: 40px;
                     "
                   >
-                     <img src="' . $appUrl . '/mail/logo.png" alt="wolfcar"  style="
+                    <img src="' . $appUrl . '/mail/logo.png" alt="Wolfcar"  style="
                     margin: auto;
                   "/>
                   </th>
@@ -1083,7 +1082,7 @@ class IndexController extends Controller
                       "
                     >
                       !Gracias
-                      <span style="color: #4d86c3">por tu Compra!</span>
+                      <span >por tu preferencia!</span>
                     </p>
                   </td>
                 </tr>
@@ -1106,26 +1105,28 @@ class IndexController extends Controller
                   </td>
                 </tr>
                 <tr>
-                <td
-                  style="
-                  text-align: center;
-                "
-                >
+                  <td
+                    style="
+                    text-align: center;
+                    vertical-align: baseline;
+                    padding-top:20px;
+                  "
+                  >
                     <a
                       href="' . $appUrl . '"
                       style="
                         text-decoration: none;
                         background-color: #FD1F4A;
                         color: white;
-                        padding: 10px 16px;
+                        padding: 16px 12px;
                         display: inline-flex;
                         justify-content: center;
-                        align-items: center;
+                        align-items: start;
                         gap: 10px;
                         font-weight: 600;
                         font-family: Montserrat, sans-serif;
                         font-size: 16px;
-                        border-radius: 30px;
+                        border-radius: 10px;
                       "
                     >
                       <span>Visita nuestra web</span>
