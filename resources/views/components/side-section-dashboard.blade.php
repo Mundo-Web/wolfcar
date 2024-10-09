@@ -30,7 +30,7 @@
         <x-link-sidebar href="{{ route('micuenta') }}"> Mi Cuenta </x-link-sidebar>
         <x-link-sidebar id="direccion" href="{{ route('direccion') }}"> Dirección </x-link-sidebar>
         <x-link-sidebar id="pedidos" href="{{ route('pedidos') }}"> Historial de pedidos </x-link-sidebar>
-        <x-link-sidebar id="listadeseos" href="{{ route('listadeseos') }}"> Lista de deseos </x-link-sidebar>
+        {{-- <x-link-sidebar id="listadeseos" href="{{ route('listadeseos') }}"> Lista de deseos </x-link-sidebar> --}}
 
 
 

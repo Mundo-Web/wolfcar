@@ -21,12 +21,12 @@
             </div>
         </section> --}}
 
-    <section class="font-poppins my-8 md:my-16">
+    <section class="font-Helvetica_Medium my-8 md:my-16">
       <div class="flex flex-col gap-12 md:flex-row md:gap-28 w-full md:w-11/12 mx-auto">
 
         <x-side-section-dashboard :user="$user" />
 
-        <div class="basis-7/12 font-poppins w-11/12 md:w-full mx-auto">
+        <div class="basis-7/12 font-Helvetica_Medium w-11/12 md:w-full mx-auto">
           <form method="POST" class="flex flex-col gap-5 mb-10" enctype='multipart/form-data' id="detalleCuenta">
             @csrf
             <h2 class="text-[20px] font-semibold text-[#151515]">
@@ -48,7 +48,7 @@
 
             <div class="flex flex-col gap-2">
               <label for="email_user" class="font-medium text-[12px] text-[#6C7275]">E-mail</label>
-              <input id="email_user" type="email" placeholder="hola@gmail.com" value="{{ $user->email }}"
+              <input id="email_user" type="email" name="email" placeholder="hola@gmail.com" value="{{ $user->email }}"
                 class="w-full py-3 px-4 focus:outline-none placeholder-gray-400 font-normal text-[16px] border-[1.5px] border-gray-200 rounded-xl text-[#6C7275]" />
             </div>
 
