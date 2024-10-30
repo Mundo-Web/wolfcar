@@ -554,7 +554,7 @@
 
       Culqi.settings({
         title: '{{env('APP_NAME')}}',
-        currency: 'USD',
+        currency: 'PEN',
         amount: Math.round((precioProductos + precioEnvio) * 100),
       });
       Culqi.options({
