@@ -451,7 +451,7 @@ function PintarCarrito() {
           </td>
           <td class="p-2 text-end">
             <p class="font-semibold text-[14px] text-[#151515] w-max">
-              S/${Number(element.descuento) !== 0 ? element.descuento : element.precio}
+              $ ${Number(element.descuento) !== 0 ? element.descuento : element.precio}
             </p>
             <button type="button" onClick="(deleteItem(${element.id} , ${element.isCombo}))" class="w-6 h-6 flex justify-center items-center mx-auto">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#272727" class="w-6 h-6">
@@ -485,7 +485,7 @@ function calcularTotal() {
   })
   const suma = total.reduce((total, elemento) => total + elemento, 0);
 
-  $('#itemsTotal').text(`S/. ${suma.toFixed(2)} `)
+  $('#itemsTotal').text(`$ ${suma.toFixed(2)} `)
   console.log("tofixed  ", suma.toFixed(2))
 
 }

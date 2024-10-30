@@ -97,13 +97,13 @@ const ProductCard = ({ item, width, bgcolor, is_reseller }) => {
           is_reseller ?
             (<>
               <div className="flex content-between flex-row gap-4 items-center justify-start">
-                <span className="text-[#15294C] opacity-60 text-[16.45px]  line-through">S/. {item.descuento > 0 ? item.descuento : item.precio}</span>
+                <span className="text-[#15294C] opacity-60 text-[16.45px]  line-through">$ {item.descuento > 0 ? item.descuento : item.precio}</span>
                 {item.descuento > 0 && (
-                  <span className="text-sm text-[#15294C] opacity-60 line-through">S/. {item.precio}</span>
+                  <span className="text-sm text-[#15294C] opacity-60 line-through">$ {item.precio}</span>
                 )}
               </div>
               <div className="flex content-between flex-row gap-4 items-center justify-start">
-                Reseller <span className="text-[#FD1F4A] text-[16.45px] font-bold">S/. {item.precio_reseller}</span>
+                Reseller <span className="text-[#FD1F4A] text-[16.45px] font-bold">$ {item.precio_reseller}</span>
 
               </div></>
 
@@ -112,11 +112,11 @@ const ProductCard = ({ item, width, bgcolor, is_reseller }) => {
               <span className="text-[#FD1F4A] font-Helvetica_Medium font-bold">{item.descuento > 0 ? 
                 
               <div className='flex flex-col justify-start items-center'>
-                <span className='text-base'>S/. {item.descuento}</span>
+                <span className='text-base'>$ {item.descuento}</span>
               </div> : 
 
               <div className='flex flex-col justify-start items-center text-lg '>
-                <span className='font-bold text-base'>S/. {item.precio}</span>
+                <span className='font-bold text-base'>$ {item.precio}</span>
               </div>
 
               }
@@ -125,7 +125,7 @@ const ProductCard = ({ item, width, bgcolor, is_reseller }) => {
                 <>
                   <div className='flex flex-col items-start'>
                     
-                    <span className=" text-[#15294C] opacity-80 line-through font-bold text-[12px] md:text-base"> S/. {item.precio}</span>
+                    <span className=" text-[#15294C] opacity-80 line-through font-bold text-[12px] md:text-base"> $ {item.precio}</span>
                   </div>
                 </>
               )}

@@ -97,11 +97,11 @@
     </h2>
     <div class="flex content-between flex-row gap-4 items-center justify-start !font-Helvetica_Medium pb-4">
       @if ($item->descuento == 0)
-        <span class="text-[#FD1F4A] text-base font-bold"> S/. {{ $item->precio }}</span>
+        <span class="text-[#FD1F4A] text-base font-bold"> $ {{ $item->precio }}</span>
       @else
         <div class="flex flex-row gap-2 items-center">
-          <span class="text-[#FD1F4A] text-base font-bold">S/. {{ $item->descuento }}</span>
-          <span class="text-[12px] md:text-sm text-[#15294C] opacity-80 line-through">S/. {{ $item->precio }}</span>
+          <span class="text-[#FD1F4A] text-base font-bold">$ {{ $item->descuento }}</span>
+          <span class="text-[12px] md:text-sm text-[#15294C] opacity-80 line-through">$ {{ $item->precio }}</span>
         </div>
       @endif
     </div>

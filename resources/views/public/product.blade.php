@@ -149,14 +149,14 @@
                         <div class="flex flex-row gap-3 content-center items-center">
                             @if ($product->descuento == 0)
                                 <div class="content-center flex flex-row gap-2 items-center">
-                                    <span class="font-Helvetica_Bold text-3xl gap-2 text-[#FD1F4A]">S/
+                                    <span class="font-Helvetica_Bold text-3xl gap-2 text-[#FD1F4A]">$
                                         {{ $product->precio }}</span>
                                 </div>
                             @else
                                 <div class="content-center flex flex-row gap-2 items-center">
-                                    <span class="font-Helvetica_Bold text-3xl gap-2 text-[#FD1F4A]">S/
+                                    <span class="font-Helvetica_Bold text-3xl gap-2 text-[#FD1F4A]">$
                                         {{ $product->descuento }}</span>
-                                    <span class="text-[#111111] font-Helvetica_Medium line-through text-lg">S/
+                                    <span class="text-[#111111] font-Helvetica_Medium line-through text-lg">$
                                         {{ $product->precio }}</span>
                                 </div>
                                 @php
