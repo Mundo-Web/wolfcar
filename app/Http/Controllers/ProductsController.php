@@ -67,7 +67,10 @@ class ProductsController extends Controller
         ->leftJoin('attributes AS a', 'apv.attribute_id', 'a.id')
         ->leftJoin('tags_xproducts AS txp', 'txp.producto_id', 'products.id')
         ->leftJoin('categories', 'categories.id', 'products.categoria_id') 
-        ->where('categories.visible', 1);    
+        ->where('categories.visible', 1)    
+        ->where('categories.status', 1)    
+        ->where('products.visible', 1)    
+        ->where('products.status', 1);    
         
         if(Auth::check()){
           $user = Auth::user();
