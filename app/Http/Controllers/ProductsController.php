@@ -357,6 +357,12 @@ class ProductsController extends Controller
          $cleanedData['stock'] = 0 ;
       }
 
+      if (!isset($cleanedData['color'])) {
+        $cleanedData['color'] = null ;
+      }
+
+      
+
       $slug = strtolower(str_replace(' ', '-', $request->producto . '-' . $request->color));
 
       if (Category::where('slug', $slug)->exists()) {
