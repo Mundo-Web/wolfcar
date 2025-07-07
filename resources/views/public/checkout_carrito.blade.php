@@ -52,11 +52,11 @@
             <div class="flex flex-col gap-5 font-Helvetica_Medium">
               <div class="text-[#151515] flex justify-between items-center">
                 <p class="text-[14px] font-semibold">Subtotal</p>
-                <span id="itemSubtotal" class="font-semibold text-[14px]">s/ 114.00</span>
+                <span id="itemSubtotal" class="font-semibold text-[14px]">$ 114.00</span>
               </div>
               <div class="text-[#151515] flex justify-between items-center">
                 <p class="font-semibold text-[20px]">Total</p>
-                <span id="itemTotal" class="font-semibold text-[20px]">s/ 0.00</span>
+                <span id="itemTotal" class="font-semibold text-[20px]">$ 0.00</span>
               </div>
               <a id="btnSiguiente" href="/pago"
                 class="text-white bg-[#FD1F4A] w-full py-3 rounded-3xl cursor-pointer tracking-wider font-semibold text-lg inline-block text-center">Siguiente</a>
@@ -164,12 +164,12 @@
     function calcularTotal() {
       console.log('Calculo el total');
       const precioProductos = getTotalPrice()
-      $('#itemSubtotal').text(`S/. ${precioProductos.toFixed(2)}`)
+      $('#itemSubtotal').text(`$ ${precioProductos.toFixed(2)}`)
       const precioEnvio = getCostoEnvio()
       const total = precioProductos + precioEnvio
 
-      $('#itemTotal').text(`S/. ${total.toFixed(2)} `)
-      $('#itemsTotal').text(`S/. ${total.toFixed(2)} `)
+      $('#itemTotal').text(`$ ${total.toFixed(2)} `)
+      $('#itemsTotal').text(`$ ${total.toFixed(2)} `)
     }
     const getTotalPrice = () => {
       const carrito = Local.get('carrito') ?? []

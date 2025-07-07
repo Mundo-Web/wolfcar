@@ -486,7 +486,7 @@
         <div class="flex flex-col gap-2 pt-2">
             <div class="text-[#111111]  text-xl flex justify-between items-center">
                 <p class="font-Helvetica_Medium font-semibold">Total</p>
-                <p class="font-Helvetica_Medium font-semibold" id="itemsTotal">S/ 0.00</p>
+                <p class="font-Helvetica_Medium font-semibold" id="itemsTotal">$ 0.00</p>
             </div>
             <div>
                 <a href="/carrito"
@@ -568,8 +568,8 @@
                   <h2 class="text-left text-[12px] line-clamp-2">${result.producto}</h2>
                 </div>
                 <div class="flex flex-col justify-center w-[15%]">
-                  <p class="text-right w-max text-[14px] ">S/ ${discount > 0 ? discount.toFixed(2) : price.toFixed(2)}</p>
-                  ${discount > 0 ? `<p class="text-[12px] text-right line-through text-slate-500 w-max">S/ ${price.toFixed(2)}</p>` : ''}
+                  <p class="text-right w-max text-[14px] ">$ ${discount > 0 ? discount.toFixed(2) : price.toFixed(2)}</p>
+                  ${discount > 0 ? `<p class="text-[12px] text-right line-through text-slate-500 w-max">$ ${price.toFixed(2)}</p>` : ''}
                 </div>
               </div>
             </a>`;
