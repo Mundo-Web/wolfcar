@@ -29,7 +29,7 @@ export default {
             },
 
             fontFamily: {
-                Helvetica_Bold: ["Helvetica_Bold"],
+                Helvetica_Bold: ["Inter_Bold"],
                 Helvetica_Heavy: ["Helvetica_Heavy"],
                 Helvetica_Black: ["Helvetica_Black"],
                 Helvetica_Light: ["Helvetica_Light"],
