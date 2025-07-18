@@ -171,7 +171,7 @@ class PaymentController extends Controller
       $config = [
         "amount" => round($totalCost * 100),
         "capture" => true,
-        "currency_code" => "USD",
+        "currency_code" => "PEN",
         "description" => "Compra en " . env('APP_NAME'),
         "email" => $body['culqi']['email'] ?? $body['contact']['email'],
         "installments" => 0,

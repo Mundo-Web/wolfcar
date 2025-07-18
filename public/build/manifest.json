@@ -15,8 +15,8 @@
   "_JSEncrypt-jwo8Dr6z.js": {
     "file": "assets/JSEncrypt-jwo8Dr6z.js"
   },
-  "_ProductCard-tqFnDeR1.js": {
-    "file": "assets/ProductCard-tqFnDeR1.js",
+  "_ProductCard-JyqbeRCe.js": {
+    "file": "assets/ProductCard-JyqbeRCe.js",
     "imports": [
       "resources/js/components/Filter/FilterContainer.jsx",
       "_arrayJoin-Fk5sgFcM.js",
@@ -93,12 +93,12 @@
     "src": "resources/js/Admin/Products.jsx"
   },
   "resources/js/Catalogo.jsx": {
-    "file": "assets/Catalogo-bcx6uFqm.js",
+    "file": "assets/Catalogo-LrF1xzVX.js",
     "imports": [
       "resources/js/components/Filter/FilterContainer.jsx",
       "resources/js/Utils/ReactAppend.jsx",
       "_CreateReactScript-Il069F1S.js",
-      "_ProductCard-tqFnDeR1.js",
+      "_ProductCard-JyqbeRCe.js",
       "resources/js/components/form/SelectAPIFormGroup.jsx",
       "_arrayJoin-Fk5sgFcM.js",
       "_axios-_sX4vCAy.js",
@@ -145,12 +145,12 @@
     "src": "resources/js/Login.jsx"
   },
   "resources/js/Ofertas.jsx": {
-    "file": "assets/Ofertas-VOvh6PLM.js",
+    "file": "assets/Ofertas-IMZPdmD_.js",
     "imports": [
       "resources/js/components/Filter/FilterContainer.jsx",
       "resources/js/Utils/ReactAppend.jsx",
       "_CreateReactScript-Il069F1S.js",
-      "_ProductCard-tqFnDeR1.js",
+      "_ProductCard-JyqbeRCe.js",
       "resources/js/components/form/SelectAPIFormGroup.jsx",
       "_arrayJoin-Fk5sgFcM.js",
       "__commonjsHelpers-4gQjN7DL.js",

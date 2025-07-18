@@ -310,13 +310,13 @@
 
               <div class="text-[#141718] flex justify-between items-center border-b-[1px] border-[#E8ECEF] pb-5">
                 <p class="font-normal text-[16px]">Subtotal</p>
-                <p id="itemSubtotal" class="font-semibold text-[16px]">$ 0.00 </p>
+                <p id="itemSubtotal" class="font-semibold text-[16px]">S/ 0.00 </p>
               </div>
 
               <div
                 class="text-[#141718] text-[20px] flex justify-between font-semibold items-center border-b-[1px] border-[#E8ECEF] pb-5">
                 <p>Total</p>
-                <p id="itemTotal">$ 0.00 </p>
+                <p id="itemTotal">S/ 0.00 </p>
               </div>
 
               <button id="btnPagar"
@@ -710,12 +710,12 @@
 
     function calcularTotal() {
       const precioProductos = getTotalPrice()
-      $('#itemSubtotal').text(`$ ${precioProductos.toFixed(2)}`)
+      $('#itemSubtotal').text(`S/ ${precioProductos.toFixed(2)}`)
       const precioEnvio = getCostoEnvio()
       const total = precioProductos + precioEnvio
 
-      $('#itemTotal').text(`$ ${total.toFixed(2)} `)
-      $('#itemsTotal').text(`$ ${total.toFixed(2)} `)
+      $('#itemTotal').text(`S/ ${total.toFixed(2)} `)
+      $('#itemsTotal').text(`S/ ${total.toFixed(2)} `)
     }
     
     const getTotalPrice = () => {

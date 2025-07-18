@@ -457,7 +457,24 @@
             <div id="resultados" class="bg-white p-[1px] rounded-xl  overflow-y-auto max-h-[300px]"></div>
         </div>
     </div> --}}
+    <div class="px-[5%] ">
+        <div class="relative w-full  pb-3 flex lg:hidden">
+            <input id="buscarproducto2" type="text" placeholder="Buscar..."
+                class="w-full pl-8 pr-10 py-2 border bg-[#F5F5F7] lg:border-[#E6E4E5] rounded-3xl focus:outline-none focus:ring-0 focus:border-[#E6E4E5] text-[#082252] placeholder:text-[#CCCCCC]">
 
+            <span class="absolute inset-y-0 left-0 flex items-start lg:items-center px-2 pb-2 pt-3">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M14.6851 13.6011C14.3544 13.2811 13.8268 13.2898 13.5068 13.6206C13.1868 13.9514 13.1955 14.4789 13.5263 14.7989L14.6851 13.6011ZM16.4206 17.5989C16.7514 17.9189 17.2789 17.9102 17.5989 17.5794C17.9189 17.2486 17.9102 16.7211 17.5794 16.4011L16.4206 17.5989ZM15.2333 9.53333C15.2333 12.6814 12.6814 15.2333 9.53333 15.2333V16.9C13.6018 16.9 16.9 13.6018 16.9 9.53333H15.2333ZM9.53333 15.2333C6.38531 15.2333 3.83333 12.6814 3.83333 9.53333H2.16667C2.16667 13.6018 5.46484 16.9 9.53333 16.9V15.2333ZM3.83333 9.53333C3.83333 6.38531 6.38531 3.83333 9.53333 3.83333V2.16667C5.46484 2.16667 2.16667 5.46484 2.16667 9.53333H3.83333ZM9.53333 3.83333C12.6814 3.83333 15.2333 6.38531 15.2333 9.53333H16.9C16.9 5.46484 13.6018 2.16667 9.53333 2.16667V3.83333ZM13.5263 14.7989L16.4206 17.5989L17.5794 16.4011L14.6851 13.6011L13.5263 14.7989Z"
+                        fill="#CCCCCC" class="fill-fillAzulPetroleo lg:fill-fillPink" />
+                </svg>
+            </span>
+
+            <div class="bg-white z-60 shadow-2xl top-12 w-full absolute overflow-y-auto max-h-[200px] z-10"
+                id="resultados2"></div>
+        </div>
+    </div>
 </header>
 
 
@@ -486,7 +503,7 @@
         <div class="flex flex-col gap-2 pt-2">
             <div class="text-[#111111]  text-xl flex justify-between items-center">
                 <p class="font-Helvetica_Medium font-semibold">Total</p>
-                <p class="font-Helvetica_Medium font-semibold" id="itemsTotal">$ 0.00</p>
+                <p class="font-Helvetica_Medium font-semibold" id="itemsTotal">S/ 0.00</p>
             </div>
             <div>
                 <a href="/carrito"
@@ -585,6 +602,52 @@
             $('#resultados').empty();
         }
     });
+
+    $('#buscarproducto2').keyup(function() {
+
+        clearTimeout(clockSearch);
+        var query = $(this).val().trim();
+
+        if (query !== '') {
+            clockSearch = setTimeout(() => {
+                $.ajax({
+                    url: '{{ route('buscar') }}',
+                    method: 'GET',
+                    data: {
+                        query: query
+                    },
+                    success: function(data) {
+                        var resultsHtml = '';
+                        var url = '{{ asset('') }}';
+                        data.forEach(function(result) {
+                            const price = Number(result.precio) || 0
+                            const discount = Number(result.descuento) || 0
+                            resultsHtml += `<a href="/producto/${result.id}">
+                                <div class="w-full flex flex-row py-3 px-3 hover:bg-slate-200">
+                                    <div class="w-[15%]">
+                                    <img class="w-20 rounded-md" src="${url}${result.imagen}" onerror="imagenError(this)" />
+                                    </div>
+                                    <div class="flex flex-col justify-center w-[60%] px-2 line-clamp-2">
+                                    <h2 class="text-left text-[12px] line-clamp-2">${result.producto}</h2>
+                                    </div>
+                                    <div class="flex flex-col justify-center w-[15%]">
+                                    <p class="text-right w-max text-[14px] ">$ ${discount > 0 ? discount.toFixed(2) : price.toFixed(2)}</p>
+                                    ${discount > 0 ? `<p class="text-[12px] text-right line-through text-slate-500 w-max">$ ${price.toFixed(2)}</p>` : ''}
+                                    </div>
+                                </div>
+                                </a>`;
+                        });
+
+                        $('#resultados2').html(resultsHtml);
+                    }
+                });
+
+            }, 300);
+
+        } else {
+            $('#resultados2').empty();
+        }
+        });
 </script>
 
 <script>
