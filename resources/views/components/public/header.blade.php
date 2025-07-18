@@ -111,7 +111,7 @@
                 </a>
             </li> --}}
 
-            <li>
+            <li >
                 <a @click="openCatalogo = !openCatalogo" href="javascript:void(0)"
                     class="text-[#272727] flex justify-between items-center font-medium font-Helvetica_Medium text-base py-2 px-3 hover:opacity-75 transition-opacity duration-300 {{ $pagina == 'catalogo' ? 'text-[#FD1F4A]' : '' }}">
                     <span class="underline-this">
@@ -129,7 +129,7 @@
                         class="ms-1 inline-block transform transition-transform duration-300">↓</span>
                 </a>
                 <ul x-show="openCatalogo" x-transition class="ml-3 mt-1 space-y-1 border-l border-gray-300">
-                    <li>
+                    <li class="h-[380px] overflow-y-auto">
                         <a href="{{ route('Catalogo.jsx') }}"
                             class="text-[#272727] flex items-center py-2 px-3 hover:opacity-75 transition-opacity duration-300">
                             <span class="underline-this">
