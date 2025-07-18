@@ -47,7 +47,7 @@
                   </div>
                   <div class="col-span-5 md:col-span-2">
 
-                    <label for="color">Color <span class="text-red-500 font-bold">*</span></label>
+                    <label for="color">Color/Caracteristica/Especificacion</label>
 
                     <div class="relative mb-2  mt-2">
                       <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

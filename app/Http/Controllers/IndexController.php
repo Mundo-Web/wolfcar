@@ -693,6 +693,8 @@ class IndexController extends Controller
     $otherProducts = Products::select()
       ->where('id', '<>', $id)
       ->where('producto', $product->producto)
+      ->where('status', true)
+      ->where('visible', true)
       ->whereNotNull('color')
       ->get();
 
