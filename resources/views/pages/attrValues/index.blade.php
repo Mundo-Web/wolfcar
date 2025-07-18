@@ -200,7 +200,7 @@
 
       Swal.fire({
         title: "Seguro que deseas eliminar?",
-        text: "Vas a eliminar un Logo",
+        text: "Vas a eliminar un atributo",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -209,29 +209,35 @@
         cancelButtonText: "Cancelar"
       }).then((result) => {
         if (result.isConfirmed) {
-
-          $.ajax({
-
-            url: `{{ route('valoresattributes.borrar') }}`,
-            method: 'POST',
-            data: {
-              _token: $('input[name="_token"]').val(),
-              id: id,
-
-            }
-
-          }).done(function(res) {
-
-            Swal.fire({
-              title: res.message,
-              icon: "success"
+            $.ajax({
+                url: `{{ route('valoresattributes.borrar') }}`,
+                method: 'POST',
+                data: {
+                    _token: $('input[name="_token"]').val(),
+                    id: id,
+                }
+            }).done(function(res) {
+                if (res.success) {
+                    Swal.fire({
+                        title: res.message,
+                        icon: "success"
+                    }).then(() => {
+                        location.reload();
+                    });
+                } else {
+                    Swal.fire({
+                        title: "Error",
+                        text: res.message,
+                        icon: "error"
+                    });
+                }
+            }).fail(function(xhr) {
+                Swal.fire({
+                    title: "Error",
+                    text: xhr.responseJSON?.message || "Ocurrió un error al intentar eliminar",
+                    icon: "error"
+                });
             });
-
-            location.reload();
-
-          })
-
-
         }
       });
 

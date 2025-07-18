@@ -144,16 +144,48 @@ class ValoresAtributosController extends Controller
   /**
    * Remove the specified resource from storage.
    */
+  // public function borrar(Request $request)
+  // {
+  //   $id = $request->id;
+  //   $service = AttributesValues::findOrfail($id);
+
+  //   $service->status = false;
+
+  //   $service->save();
+  //   return response()->json(['message' => 'Registro eliminado.']);
+  // }
+
   public function borrar(Request $request)
-  {
+{
     $id = $request->id;
-    $service = AttributesValues::findOrfail($id);
+    $attributeValue = AttributesValues::findOrFail($id);
 
-    $service->status = false;
+    $relatedProducts = $attributeValue->attributeProductValues()
+        ->with('product')
+        ->get()
+        ->pluck('product.producto')
+        ->filter()
+        ->toArray();
 
-    $service->save();
-    return response()->json(['message' => 'Registro eliminado.']);
-  }
+    if (count($relatedProducts) > 0) {
+        $productList = implode(', ', array_slice($relatedProducts, 0, 5)); // Mostrar hasta 5 productos
+        $message = count($relatedProducts) > 5 
+            ? "No se puede eliminar. Está siendo usado en $productList y otros más."
+            : "No se puede eliminar. Está siendo usado en: $productList";
+            
+        return response()->json([
+            'success' => false,
+            'message' => $message
+        ], 422);
+    }
+
+    $attributeValue->delete();
+    
+    return response()->json([
+        'success' => true,
+        'message' => 'Registro eliminado correctamente.'
+    ]);
+}
 
   public function updateVisible(Request $request)
   {
