@@ -12,6 +12,7 @@ use App\Models\PoliticaDatos;
 use App\Models\PolyticsCondition;
 use App\Models\Products;
 use App\Models\Sale;
+use App\Models\AttributesValues;
 use App\Models\Tag;
 use App\Models\TermsAndCondition;
 use Illuminate\Contracts\Pagination\Paginator;
@@ -65,6 +66,12 @@ class AppServiceProvider extends ServiceProvider
                 $query->whereHas('products');
             }])->get();
 
+            $marcas = AttributesValues::where('attribute_id', 1)
+                ->whereHas('attributeProductValues.product', function($query) {
+                    $query->where('status', 1)
+                        ->where('visible', 1);
+                })
+                ->get();
 
             $tags = Tag::where('is_menu', 1)
                 ->whereHas('productos')
@@ -75,7 +82,7 @@ class AppServiceProvider extends ServiceProvider
                 ->exists();
 
             // Pasar los datos a la vista
-            $view->with(['datosgenerales' => $datosgenerales, 'blog' => $blog,  
+            $view->with(['marcas'=> $marcas, 'datosgenerales' => $datosgenerales, 'blog' => $blog,  
             'categoriasMenu' => $categoriasMenu, 'tags' => $tags, 'offerExists' => $offerExists , 'categorias'=> $categorias]);
         });
 

@@ -114,7 +114,7 @@ const FilterContainer = ({ minPrice, setFilter, filter, maxPrice, categories = [
 
       )
     }
-    {
+    {/* {
       tags.length > 0 && <div className="flex flex-col gap-4 w-full">
         <h2 className="font-semibold">Etiquetas</h2>
         <div className='flex flex-row gap-4 w-full flex-wrap'>
@@ -129,7 +129,7 @@ const FilterContainer = ({ minPrice, setFilter, filter, maxPrice, categories = [
           })}
         </div>
       </div>
-    }
+    } */}
     {
       attribute_values.map((x, i) => (
         <FilterItem key={`attribute-${i}`} title={x[0].attribute.titulo} items={x} itemName='valor' itemImg='imagen' onClick={onClick} />

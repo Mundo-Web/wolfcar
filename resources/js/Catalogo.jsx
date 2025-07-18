@@ -39,24 +39,51 @@ const Catalogo = ({ minPrice, maxPrice, categories, tags, attribute_values, id_c
     // Leer el parámetro 'tag' de la URL
     const params = new URLSearchParams(window.location.search);
     const tag = params.get('tag');
+    const category = params.get('category');
+    const attValue = params.get('att');
+    const newFilter = {}
 
+    
     // Actualizar el filtro con el 'tag_id' si existe
-    if (tag) {
-      setFilter(prevFilter => ({
-        ...prevFilter,
-        'txp.tag_id': [tag]
-      }));
-    }
+    // if (tag) {
+    //   setFilter(prevFilter => ({
+    //     ...prevFilter,
+    //     'txp.tag_id': [tag]
+    //   }));
+    // }
 
     // Si hay una categoría seleccionada, agregarla al filtro
-    if (selected_category) {
-      setFilter(prevFilter => ({
-        ...prevFilter,
-        category_id: [selected_category]
-      }));
+    // if (selected_category) {
+    //   setFilter(prevFilter => ({
+    //     ...prevFilter,
+    //     category_id: [selected_category]
+    //   }));
+    // }
+
+    if (tag) {
+      newFilter['txp.tag_id'] = [tag];
     }
+  
+    if (selected_category) {
+      newFilter['category_id'] = [selected_category];
+    }
+  
+    // Agregar filtro de attribute_value si existe en la URL
+    if (attValue) {
+      // Usamos una clave especial para este filtro directo
+      newFilter['attribute_value_id'] = [attValue];
+    }
+  
+    setFilter(prevFilter => {
+      if (JSON.stringify(prevFilter) !== JSON.stringify(newFilter)) {
+        return newFilter;
+      }
+      return prevFilter;
+    });
+
   }, [selected_category]);
 
+  console.log(filter, 'attribute_value_id');
   useEffect(() => {
     setCurrentPage(1);
     getItems();
@@ -158,6 +185,16 @@ const Catalogo = ({ minPrice, maxPrice, categories, tags, attribute_values, id_c
         'and',
         attributeFilter
       ]);
+    }
+
+    if (filter['attribute_value_id'] && filter['attribute_value_id'].length > 0) {
+      filter['attribute_value_id'].forEach((value, i) => {
+        if (i === 0) {
+          filterBody.push(['apv.attribute_value_id', '=', value]);
+        } else {
+          filterBody.push('or', ['apv.attribute_value_id', '=', value]);
+        }
+      });
     }
 
     if (filter['category_id'] && filter['category_id'].length > 0) {

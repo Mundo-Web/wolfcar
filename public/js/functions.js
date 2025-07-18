@@ -53,6 +53,12 @@ if (bag){
 function show() {
   document.querySelector(".hamburger").classList.toggle("open");
   document.querySelector(".navigation").classList.toggle("active");
+
+  if (document.querySelector(".navigation").classList.contains("active")) {
+    document.body.style.overflow = "hidden"; // Deshabilitar scroll cuando el menú está abierto
+  } else {
+    document.body.style.overflow = ""; // Restaurar scroll cuando el menú está cerrado
+  }
 }
 
 

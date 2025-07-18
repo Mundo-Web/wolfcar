@@ -29,7 +29,7 @@
         left: 0;
         width: 100%;
         height: 2px;
-        background-color: #FF5E14;
+        background-color: #FD1F4A;
         transform: scaleX(0);
         transition: transform 0.3s ease;
     }
@@ -72,18 +72,18 @@
     }
 </style>
 
-<div class="navigation shadow-xl px-5 overflow-y-auto" style="z-index: 9999; background-color: #fff !important ">
+<div class="navigation shadow-xl px-5 overflow-hidden" style="z-index: 9999; background-color: #fff !important ">
     <button aria-label="hamburguer" type="button" class="hamburger" id="position" onclick="show()">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M18 2L2 18M18 18L2 2" stroke="#272727" stroke-width="2.66667" stroke-linecap="round" />
         </svg>
     </button>
 
-    <nav class="w-full h-full overflow-y-auto p-8" x-data="{ openCatalogo: true, openSubMenu: null }">
+    <nav class="w-full h-full overflow-y-auto pt-2 pb-8 px-2" x-data="{ openCatalogo: true, openSubMenu: null }">
         <ul class="space-y-1">
             <li>
                 <a href="/"
-                    class="text-[#272727] font-medium font-poppins text-sm py-2 px-3 block hover:opacity-75 transition-opacity duration-300 {{ $isIndex ? 'text-[#FF5E14]' : '' }}">
+                    class="text-[#272727] font-medium font-Helvetica_Medium text-base py-2 px-3 block hover:opacity-75 transition-opacity duration-300 {{ $isIndex ? 'text-[#FD1F4A]' : '' }}">
                     <span class="underline-this">
                         <svg class="inline-block w-3 h-3 mb-0.5 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -91,14 +91,14 @@
                             <path
                                 d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
                         </svg>
-                        INICIO
+                        Inicio
                     </span>
                 </a>
             </li>
 
-            <li>
+            {{-- <li>
                 <a href="/nosotros"
-                    class="text-[#272727] font-medium font-poppins text-sm py-2 px-3 block hover:opacity-75 transition-opacity duration-300 {{ $isIndex ? 'text-[#FF5E14]' : '' }}">
+                    class="text-[#272727] font-medium font-poppins text-sm py-2 px-3 block hover:opacity-75 transition-opacity duration-300 {{ $isIndex ? 'text-[#FD1F4A]' : '' }}">
                     <span class="underline-this">
                         <svg class="inline-block w-3 h-3 mb-0.5 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -109,11 +109,11 @@
                         NOSOTROS
                     </span>
                 </a>
-            </li>
+            </li> --}}
 
             <li>
                 <a @click="openCatalogo = !openCatalogo" href="javascript:void(0)"
-                    class="text-[#272727] flex justify-between items-center font-medium font-poppins text-sm py-2 px-3 hover:opacity-75 transition-opacity duration-300 {{ $pagina == 'catalogo' ? 'text-[#FF5E14]' : '' }}">
+                    class="text-[#272727] flex justify-between items-center font-medium font-Helvetica_Medium text-base py-2 px-3 hover:opacity-75 transition-opacity duration-300 {{ $pagina == 'catalogo' ? 'text-[#FD1F4A]' : '' }}">
                     <span class="underline-this">
                         <svg class="inline-block w-3 h-3 mb-0.5 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -123,7 +123,7 @@
                             <path
                                 d="M1 18h16a1 1 0 0 0 1-1v-6h-4.439a.99.99 0 0 0-.908.6 3.978 3.978 0 0 1-7.306 0 .99.99 0 0 0-.908-.6H0v6a1 1 0 0 0 1 1Z" />
                         </svg>
-                        PRODUCTOS
+                        Productos
                     </span>
                     <span :class="{ 'rotate-180': openCatalogo }"
                         class="ms-1 inline-block transform transition-transform duration-300">↓</span>
@@ -134,15 +134,23 @@
                             class="text-[#272727] flex items-center py-2 px-3 hover:opacity-75 transition-opacity duration-300">
                             <span class="underline-this">
                                 Todas las categorías
-
                             </span>
 
                         </a>
                         @if (count($categorias) > 0)
-
-
                             <div x-data="{ openCategories: {} }">
-                                @foreach ($categorias as $item)
+                                @foreach ($marcas as $subitem)
+                                    <label for="item-marca-{{ $subitem->id }}"
+                                        class="text-custom-border flex flex-row gap-2 items-center cursor-pointer">
+                                        <a href="/catalogo?att={{ $subitem->id }}"
+                                            id="marca-{{ $subitem->id }}" name="marca"
+                                            class="rounded-sm border-none text-[#272727] flex items-center py-1 px-3 hover:opacity-75 transition-opacity duration-300"
+                                            value="{{ $subitem->id }}">
+                                            {{ $subitem->valor }}
+                                        </a>
+                                    </label>
+                                @endforeach
+                                {{-- @foreach ($categorias as $item)
                                     <div class="text-[#272727] flex items-center py-2 px-3 hover:opacity-75 transition-opacity duration-300"
                                         @click="openCategories[{{ $item->id }}] = !openCategories[{{ $item->id }}]">
                                         <span>{{ $item->name }}</span>
@@ -169,7 +177,7 @@
                                             </label>
                                         @endforeach
                                     </div>
-                                @endforeach
+                                @endforeach --}}
                             </div>
 
                         @endif
@@ -178,9 +186,9 @@
                 </ul>
             </li>
 
-            <li>
+            {{-- <li>
                 <a href="/blog/0"
-                    class="text-[#272727] font-medium font-poppins text-sm py-2 px-3 block hover:opacity-75 transition-opacity duration-300 {{ $pagina == 'contacto' ? 'text-[#FF5E14]' : '' }}">
+                    class="text-[#272727] font-medium font-poppins text-sm py-2 px-3 block hover:opacity-75 transition-opacity duration-300 {{ $pagina == 'contacto' ? 'text-[#FD1F4A]' : '' }}">
                     <span class="underline-this">
                         <svg class="inline-block w-3 h-3 mb-0.5 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -191,11 +199,11 @@
                         BLOG
                     </span>
                 </a>
-            </li>
+            </li> --}}
 
             <li>
                 <a href="/contacto"
-                    class="text-[#272727] font-medium font-poppins text-sm py-2 px-3 block hover:opacity-75 transition-opacity duration-300 {{ $pagina == 'contacto' ? 'text-[#FF5E14]' : '' }}">
+                    class="text-[#272727] font-medium font-Helvetica_Medium text-base py-2 px-3 block hover:opacity-75 transition-opacity duration-300 {{ $pagina == 'contacto' ? 'text-[#FD1F4A]' : '' }}">
                     <span class="underline-this">
                         <svg class="inline-block w-3 h-3 mb-0.5 me-2 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -204,7 +212,7 @@
                                 d="M19 4h-1a1 1 0 1 0 0 2v11a1 1 0 0 1-2 0V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a1 1 0 0 0-1-1ZM3 4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4Zm9 13H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-3H4a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Zm0-3h-2a1 1 0 0 1 0-2h2a1 1 0 1 1 0 2Z" />
                             <path d="M6 5H5v1h1V5Z" />
                         </svg>
-                        CONTACTO
+                        Contacto
                     </span></a>
             </li>
 
@@ -212,7 +220,7 @@
                 @foreach ($tags as $item)
                     <li>
                         <a href="/catalogo?tag={{ $item->id }}"
-                            class="text-[#272727] font-medium font-poppins text-sm py-2 px-3 block hover:opacity-75 transition-opacity duration-300 {{ $pagina == 'contacto' ? 'text-[#FF5E14]' : '' }}">
+                            class="text-[#272727] font-medium font-Helvetica_Medium text-base py-2 px-3 block hover:opacity-75 transition-opacity duration-300 {{ $pagina == 'contacto' ? 'text-[#FD1F4A]' : '' }}">
                             <span class="underline-this  ">
                                 {{ $item->name }} </span>
                         </a>
@@ -275,8 +283,11 @@
     <div>
         <div id="header-menu" class="flex justify-between gap-5 w-full px-[5%] xl:px-[8%] py-4  text-[17px] relative ">
             <div id="menu-burguer" class="lg:hidden z-10 w-max">
-                <img class="h-10 w-10 cursor-pointer" src="{{ asset('images/img/menu_hamburguer.png') }}"
-                    alt="menu hamburguesa" onclick="show()" />
+
+                <div class="h-10 w-10 cursor-pointer flex flex-col justify-center items-center" src="{{ asset('images/img/menu_hamburguer.png') }}"
+                    alt="menu hamburguesa" onclick="show()">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
             </div>
 
             <div class="w-auto">
@@ -391,7 +402,7 @@
                 <div class="flex justify-center items-center">
                     <div id="open-cart" class="relative inline-block cursor-pointer pr-3">
                         <span id="itemsCount"
-                            class="bg-[#EB5D2C] text-xs font-medium text-white text-center px-[7px] py-[2px]  rounded-full absolute bottom-0 right-0 ml-3">0</span>
+                            class="bg-[#FD1F4A] text-xs font-medium text-white text-center px-[7px] py-[2px]  rounded-full absolute bottom-0 right-0 ml-3">0</span>
                         <img src="{{ asset('images/svg/bag_boost.svg') }}"
                             class="bg-white rounded-lg p-1 max-w-full h-auto cursor-pointer" />
                     </div>
