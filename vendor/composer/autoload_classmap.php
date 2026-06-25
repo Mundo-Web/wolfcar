@@ -489,6 +489,7 @@ return array(
     'Database\\Seeders\\IndexSeeder' => $baseDir . '/database/seeders/IndexSeeder.php',
     'Database\\Seeders\\LibroReclamacionesSeeder' => $baseDir . '/database/seeders/LibroReclamacionesSeeder.php',
     'Database\\Seeders\\MessageSeeder' => $baseDir . '/database/seeders/MessageSeeder.php',
+    'Database\\Seeders\\NewUserSeeder' => $baseDir . '/database/seeders/NewUserSeeder.php',
     'Database\\Seeders\\OfferDetailSeeder' => $baseDir . '/database/seeders/OfferDetailSeeder.php',
     'Database\\Seeders\\OfferSeeder' => $baseDir . '/database/seeders/OfferSeeder.php',
     'Database\\Seeders\\PoliticasDatos' => $baseDir . '/database/seeders/PoliticasDatos.php',

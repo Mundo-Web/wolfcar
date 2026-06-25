@@ -373,13 +373,13 @@ class ComposerStaticInit02e8e04fa189e0cd1c83c725df3344e0
         ),
         'Spatie\\LaravelIgnition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
-            1 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
+            0 => __DIR__ . '/..' . '/spatie/laravel-ignition/src',
+            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/laravel-ignition',
         ),
         'Spatie\\Ignition\\' => 
         array (
-            0 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
-            1 => __DIR__ . '/..' . '/spatie/ignition/src',
+            0 => __DIR__ . '/..' . '/spatie/ignition/src',
+            1 => __DIR__ . '/..' . '/spatie/error-solutions/legacy/ignition',
         ),
         'Spatie\\FlareClient\\' => 
         array (
@@ -1167,6 +1167,7 @@ class ComposerStaticInit02e8e04fa189e0cd1c83c725df3344e0
         'Database\\Seeders\\IndexSeeder' => __DIR__ . '/../..' . '/database/seeders/IndexSeeder.php',
         'Database\\Seeders\\LibroReclamacionesSeeder' => __DIR__ . '/../..' . '/database/seeders/LibroReclamacionesSeeder.php',
         'Database\\Seeders\\MessageSeeder' => __DIR__ . '/../..' . '/database/seeders/MessageSeeder.php',
+        'Database\\Seeders\\NewUserSeeder' => __DIR__ . '/../..' . '/database/seeders/NewUserSeeder.php',
         'Database\\Seeders\\OfferDetailSeeder' => __DIR__ . '/../..' . '/database/seeders/OfferDetailSeeder.php',
         'Database\\Seeders\\OfferSeeder' => __DIR__ . '/../..' . '/database/seeders/OfferSeeder.php',
         'Database\\Seeders\\PoliticasDatos' => __DIR__ . '/../..' . '/database/seeders/PoliticasDatos.php',

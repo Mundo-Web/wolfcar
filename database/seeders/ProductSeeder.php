@@ -70,17 +70,46 @@ class ProductSeeder extends Seeder
                     'visible' => true
                 ]);
 
-                $path2search = "public/storage/images/productos/";
-
+                $sku = trim($row[5]);
                 $images = [];
                 try {
-                    $images = File::scan($path2search, [
-                        'type' => 'file',
-                        'startsWith' => $product->sku,
-                        'desc' => true
-                    ]);
+                    $path2search = public_path("storage/images/productos/");
+                    if (file_exists($path2search)) {
+                        $allFiles = scandir($path2search);
+                        $regex = '/^' . preg_quote($sku, '/') . '(-[0-9]+)?\.[a-zA-Z0-9]+$/i';
+                        foreach ($allFiles as $file) {
+                            if ($file === '.' || $file === '..') continue;
+                            if (is_file($path2search . '/' . $file)) {
+                                if (preg_match($regex, $file)) {
+                                    $images[] = $file;
+                                }
+                            }
+                        }
+                    }
                 } catch (\Throwable $th) {}
 
+                if (count($images) > 0) {
+                    usort($images, function($a, $b) use ($sku) {
+                        $a_rest = substr($a, strlen($sku));
+                        $b_rest = substr($b, strlen($sku));
+                        
+                        $a_is_base = str_starts_with($a_rest, '.');
+                        $b_is_base = str_starts_with($b_rest, '.');
+                        
+                        if ($a_is_base && !$b_is_base) return -1;
+                        if (!$a_is_base && $b_is_base) return 1;
+                        
+                        preg_match('/^-([0-9]+)/', $a_rest, $a_num);
+                        preg_match('/^-([0-9]+)/', $b_rest, $b_num);
+                        
+                        $na = isset($a_num[1]) ? (int)$a_num[1] : 0;
+                        $nb = isset($b_num[1]) ? (int)$b_num[1] : 0;
+                        
+                        return $na <=> $nb;
+                    });
+                }
+
+                Galerie::where('product_id', $product->id)->delete();
                 foreach ($images as $key => $image_name) {
                     $image = "storage/images/productos/{$image_name}";
                     
